@@ -1,0 +1,38 @@
+name: Deploy to the WP Engine Production environment
+on:
+  push:
+    branches: [ master ]
+
+  workflow_dispatch:
+
+jobs:
+  wp-engine-deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Use Node.js 20.x
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          registry-url: https://registry.npmjs.org/
+
+      - name: Install NPM dependencies for the RV Starter theme
+        run: npm --prefix wp-content/themes/rv-starter install
+
+      - name: Run the build for the RV Starter theme
+        run: npm --prefix wp-content/themes/rv-starter run build
+
+      - name: Deploy to WP Engine
+        uses: wpengine/github-action-wpe-site-deploy@v3.2
+        with:
+          # Deploy vars
+          WPE_SSHG_KEY_PRIVATE: ${{ secrets.WPE_SSHG_KEY_PRIVATE }}
+
+          WPE_ENV: rv-starterrv
+
+          # Deploy Options
+          PHP_LINT: FALSE
+          FLAGS: -azvr --inplace --exclude=".*" --exclude-from=.deployignore
+          SCRIPT: "bin/deploy.sh"
+          CACHE_CLEAR: TRUE
