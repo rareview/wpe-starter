@@ -1,42 +1,34 @@
-@mixin page-vertical-spacing( $top: true, $bottom: true ) {
+@mixin page-vertical-spacing($top: true, $bottom: true) {
 
 	@if $top == true {
-		padding-top: calc(var(--wp--custom--spacing--base) * 2);
+		padding-top: 2.5rem;
 
 		@media (min-width: $breakpoint-tablet) {
-			padding-top: calc(var(--wp--custom--spacing--base) * 3);
+			padding-top: 3.75rem;
 		}
 
 		@media (min-width: $breakpoint-desktop) {
-			padding-top: calc(var(--wp--custom--spacing--base) * 4);
+			padding-top: 5rem;
 		}
 
 		@media (min-width: $breakpoint-desktop-large) {
-			padding-top: calc(var(--wp--custom--spacing--base) * 5);
-		}
-
-		@media (min-width: $breakpoint-desktop-xx-large) {
-			padding-top: calc(var(--wp--custom--spacing--base) * 6);
+			padding-top: 6.25rem;
 		}
 	}
 
 	@if $bottom == true {
-		padding-bottom: calc(var(--wp--custom--spacing--base) * 3);
+		padding-bottom: 3.75rem;
 
 		@media (min-width: $breakpoint-tablet) {
-			padding-bottom: calc(var(--wp--custom--spacing--base) * 4);
+			padding-bottom: 5rem;
 		}
 
 		@media (min-width: $breakpoint-desktop) {
-			padding-bottom: calc(var(--wp--custom--spacing--base) * 5);
+			padding-bottom: 6.25rem;
 		}
 
 		@media (min-width: $breakpoint-desktop-large) {
-			padding-bottom: calc(var(--wp--custom--spacing--base) * 6);
-		}
-
-		@media (min-width: $breakpoint-desktop-xx-large) {
-			padding-bottom: calc(var(--wp--custom--spacing--base) * 7);
+			padding-bottom: 7.5rem;
 		}
 	}
 }

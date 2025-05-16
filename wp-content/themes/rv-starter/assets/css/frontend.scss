@@ -6,6 +6,9 @@
 
 @import "global/normalize";
 
+@import "abstracts/z-indexes/z-indexes";
+@import "abstracts/variables/variables";
+
 @import "abstracts/mixins/input-fields/background-dark";
 @import "abstracts/mixins/input-fields/input-label";
 @import "abstracts/mixins/input-fields/input-text";
@@ -13,8 +16,6 @@
 @import "abstracts/mixins/input-fields/input-checkbox";
 @import "abstracts/mixins/input-fields/input-radio";
 
-@import "abstracts/z-indexes/z-indexes";
-@import "abstracts/variables/variables";
 @import "abstracts/mixins/buttons";
 @import "abstracts/mixins/container";
 @import "abstracts/mixins/cover-image";

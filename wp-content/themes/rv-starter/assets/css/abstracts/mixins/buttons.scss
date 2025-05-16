@@ -22,7 +22,7 @@
 	flex-direction: column;
 	justify-content: center;
 	text-decoration: none;
-	padding: 8px 30px;
+	padding: 0.5rem 0.625rem;
 	height: $input-field-height;
 	cursor: pointer;
 	box-sizing: border-box;
@@ -45,7 +45,7 @@
 
 	/* Responsiveness. */
 	@media only screen and (min-width: $breakpoint-tablet) {
-		padding: 8px 60px;
+		padding: 0.5rem 0.9375rem;
 	}
 }
 
