@@ -39,7 +39,7 @@
     "dealerdirect/phpcodesniffer-composer-installer": "^1.0.0",
     "roave/security-advisories": "dev-latest",
     "wpackagist-plugin/debug-bar": "1.1.6",
-    "wpackagist-plugin/query-monitor": "3.15",
+    "wpackagist-plugin/query-monitor": "3.18.0",
     "10up/phpcs-composer": "dev-master"
   },
   "scripts": {
