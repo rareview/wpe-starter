@@ -1,0 +1,61 @@
+name: Update Changelog on PR Merge
+
+on:
+  pull_request_target:
+    types:
+      - closed
+
+jobs:
+  update-changelog:
+    name: Update Changelog
+    runs-on: ubuntu-latest
+    if: github.event.pull_request.merged == true
+
+    permissions:
+      contents: write
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+        with:
+          ref: ${{ github.event.pull_request.base.ref }}
+          fetch-depth: 0
+
+      - name: Use Node.js 20.x
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          registry-url: https://registry.npmjs.org/
+
+      - name: Install root dependencies
+        run: npm install
+
+      - name: Configure Git User
+        run: |
+          git config --local user.email "github-actions@github.com"
+          git config --local user.name "GitHub Actions"
+
+      - name: Major release
+        if: ${{ contains(github.event.pull_request.labels.*.name, 'major') }}
+        run: |
+          echo "Running major release..."
+          npm run release -- --release-as major
+
+      - name: Minor release
+        if: ${{ contains(github.event.pull_request.labels.*.name, 'minor') }}
+        run: |
+          echo "Running minor release..."
+          npm run release -- --release-as minor
+
+      - name: Patch release
+        if: ${{ contains(github.event.pull_request.labels.*.name, 'patch') }}
+        run: |
+          echo "Running patch release..."
+          npm run release -- --release-as patch
+
+      - name: Publish Changelog
+        if: |
+          ${{ contains(github.event.pull_request.labels.*.name, 'major') }} ||
+          ${{ contains(github.event.pull_request.labels.*.name, 'minor') }} ||
+          ${{ contains(github.event.pull_request.labels.*.name, 'patch') }}
+        run: git push --follow-tags origin ${{ github.event.pull_request.base.ref }}
