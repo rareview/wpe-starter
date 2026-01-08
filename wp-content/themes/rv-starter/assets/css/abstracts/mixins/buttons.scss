@@ -22,7 +22,7 @@
 	flex-direction: column;
 	justify-content: center;
 	text-decoration: none;
-	padding: 0.5rem 0.625rem;
+	padding: 0.5rem 1rem;
 	height: $input-field-height;
 	cursor: pointer;
 	box-sizing: border-box;
@@ -34,18 +34,27 @@
 
 	/* Hover. */
 	&:not(:disabled, .disabled):hover {
-		filter: brightness(1.15);
+		&,
+		&:not(:disabled, .disabled) & { // if button or anchor is inside a parent element with "disabled" class or attr.
+			filter: brightness(1.15);
 
-		@if $outline == "true" {
-			background-color: $color;
-			border-color: $color;
-			color: $color-black;
+			@if $outline == "true" {
+				background-color: $color;
+				border-color: $color;
+				color: $color-black;
+			}
 		}
 	}
 
-	/* Responsiveness. */
-	@media only screen and (min-width: $breakpoint-tablet) {
-		padding: 0.5rem 0.9375rem;
+	/* Disabled */
+	&:disabled,
+	&.disabled {
+		&,
+		&:disabled &,
+		&.disabled & { // if button or anchor is inside a parent element with "disabled" class or attr.
+			opacity: $disabled-opacity;
+			cursor: not-allowed;
+		}
 	}
 }
 
