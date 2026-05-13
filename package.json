@@ -25,7 +25,12 @@
     "lint:css": "npm run --prefix wp-content/themes/rv-starter lint:css",
     "lint:php": "npm run --prefix wp-content/themes/rv-starter lint:php",
     "test": "npm run --prefix wp-content/themes/rv-starter test",
-    "clean-dist": "npm run --prefix wp-content/themes/rv-starter clean-dist"
+    "clean-dist": "npm run --prefix wp-content/themes/rv-starter clean-dist",
+    "setup": "node scripts/setup/setup.mjs",
+    "design-system": "node scripts/design-system/design-system.mjs",
+    "create-block": "npm run --prefix wp-content/themes/rv-starter create-block --",
+    "figma-sync": "sh -c 'node scripts/figma-sync/figma-sync.mjs \"$@\" && node scripts/figma-sync/figma-apply.mjs \"$@\"' --",
+    "figma-apply": "node scripts/figma-sync/figma-apply.mjs"
   },
   "author": {
     "name": "Rareview",
@@ -39,8 +44,10 @@
     "npm": ">=10.0.0"
   },
   "devDependencies": {
-    "husky": "9.0.11",
-    "lint-staged": "15.2.2",
-    "npm-run-all": "^4.1.5"
+    "@inquirer/prompts": "^8.4.2",
+    "dotenv": "^17.2.3",
+    "husky": "^9.1.7",
+    "lint-staged": "^16.4.0",
+    "npm-run-all2": "^8.0.4"
   }
 }
