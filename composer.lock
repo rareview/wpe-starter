@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "e6712d311c4f821eb4a4a30b707ee9b4",
+    "content-hash": "8af8b4e77cc2215ec98f72903e51051e",
     "packages": [
         {
             "name": "composer/installers",
@@ -150,7 +150,8 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2024-06-24T20:46:46+00:00"
+            "time": "2024-06-24T20:46:46+00:00",
+            "published-time": "2024-06-24T21:01:36+00:00"
         },
         {
             "name": "wpackagist-theme/twentytwentyfour",
@@ -1705,15 +1706,15 @@
         },
         {
             "name": "wpackagist-plugin/debug-bar",
-            "version": "1.1.6",
+            "version": "1.2.0",
             "source": {
                 "type": "svn",
                 "url": "https://plugins.svn.wordpress.org/debug-bar/",
-                "reference": "tags/1.1.6"
+                "reference": "tags/1.2.0"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://downloads.wordpress.org/plugin/debug-bar.1.1.6.zip"
+                "url": "https://downloads.wordpress.org/plugin/debug-bar.1.2.0.zip"
             },
             "require": {
                 "composer/installers": "^1.0 || ^2.0"
@@ -1755,5 +1756,5 @@
     "platform-overrides": {
         "php": "8.2"
     },
-    "plugin-api-version": "2.6.0"
+    "plugin-api-version": "2.11.0"
 }
